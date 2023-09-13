@@ -1,4 +1,4 @@
 // Export pages
-export '/auth2/auth2_widget.dart' show Auth2Widget;
-export '/list/list_widget.dart' show ListWidget;
-export '/pages/creat/creat_widget.dart' show CreatWidget;
+export '/pages/list/list_widget.dart' show ListWidget;
+export '/pages/tes2/tes2_widget.dart' show Tes2Widget;
+export '/auth1/auth1_widget.dart' show Auth1Widget;

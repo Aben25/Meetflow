@@ -2,24 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CLIENT_ID</key>
-	<string>172469628091-chnbai0brp66rpqbv9oqobed7i5hhvm2.apps.googleusercontent.com</string>
-	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.172469628091-chnbai0brp66rpqbv9oqobed7i5hhvm2</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>172469628091-bcb0e1gm1ekj8b53fs6fksjtpfe2aqpb.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBSzQ9IfOyxTvXUpYm2So6o1KGXhUTIAig</string>
+	<string>AIzaSyDd4g8Q4XLFNuYJiPvuOFmivnpSkTKeysU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>172469628091</string>
+	<string>1076206231810</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.line.meet</string>
 	<key>PROJECT_ID</key>
-	<string>meet-941d4</string>
+	<string>test-3aadd</string>
 	<key>STORAGE_BUCKET</key>
-	<string>meet-941d4.appspot.com</string>
+	<string>test-3aadd.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,8 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:172469628091:ios:4cc0792c36f36a37c68d9e</string>
-	<key>DATABASE_URL</key>
-	<string>https://meet-941d4-default-rtdb.firebaseio.com</string>
+	<string>1:1076206231810:ios:5ef14168fb8509b9ac621b</string>
 </dict>
 </plist>

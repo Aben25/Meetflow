@@ -8,79 +8,79 @@ import '/backend/schema/util/schema_util.dart';
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class NamesRecord extends FirestoreRecord {
-  NamesRecord._(
+class ListRecord extends FirestoreRecord {
+  ListRecord._(
     DocumentReference reference,
     Map<String, dynamic> data,
   ) : super(reference, data) {
     _initializeFields();
   }
 
-  // "Name" field.
+  // "name" field.
   String? _name;
   String get name => _name ?? '';
   bool hasName() => _name != null;
 
   void _initializeFields() {
-    _name = snapshotData['Name'] as String?;
+    _name = snapshotData['name'] as String?;
   }
 
   static CollectionReference get collection =>
-      FirebaseFirestore.instance.collection('Names');
+      FirebaseFirestore.instance.collection('list');
 
-  static Stream<NamesRecord> getDocument(DocumentReference ref) =>
-      ref.snapshots().map((s) => NamesRecord.fromSnapshot(s));
+  static Stream<ListRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => ListRecord.fromSnapshot(s));
 
-  static Future<NamesRecord> getDocumentOnce(DocumentReference ref) =>
-      ref.get().then((s) => NamesRecord.fromSnapshot(s));
+  static Future<ListRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => ListRecord.fromSnapshot(s));
 
-  static NamesRecord fromSnapshot(DocumentSnapshot snapshot) => NamesRecord._(
+  static ListRecord fromSnapshot(DocumentSnapshot snapshot) => ListRecord._(
         snapshot.reference,
         mapFromFirestore(snapshot.data() as Map<String, dynamic>),
       );
 
-  static NamesRecord getDocumentFromData(
+  static ListRecord getDocumentFromData(
     Map<String, dynamic> data,
     DocumentReference reference,
   ) =>
-      NamesRecord._(reference, mapFromFirestore(data));
+      ListRecord._(reference, mapFromFirestore(data));
 
   @override
   String toString() =>
-      'NamesRecord(reference: ${reference.path}, data: $snapshotData)';
+      'ListRecord(reference: ${reference.path}, data: $snapshotData)';
 
   @override
   int get hashCode => reference.path.hashCode;
 
   @override
   bool operator ==(other) =>
-      other is NamesRecord &&
+      other is ListRecord &&
       reference.path.hashCode == other.reference.path.hashCode;
 }
 
-Map<String, dynamic> createNamesRecordData({
+Map<String, dynamic> createListRecordData({
   String? name,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'Name': name,
+      'name': name,
     }.withoutNulls,
   );
 
   return firestoreData;
 }
 
-class NamesRecordDocumentEquality implements Equality<NamesRecord> {
-  const NamesRecordDocumentEquality();
+class ListRecordDocumentEquality implements Equality<ListRecord> {
+  const ListRecordDocumentEquality();
 
   @override
-  bool equals(NamesRecord? e1, NamesRecord? e2) {
+  bool equals(ListRecord? e1, ListRecord? e2) {
     return e1?.name == e2?.name;
   }
 
   @override
-  int hash(NamesRecord? e) => const ListEquality().hash([e?.name]);
+  int hash(ListRecord? e) => const ListEquality().hash([e?.name]);
 
   @override
-  bool isValidKey(Object? o) => o is NamesRecord;
+  bool isValidKey(Object? o) => o is ListRecord;
 }
