@@ -78,13 +78,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? ListWidget() : Auth2Widget(),
+          appStateNotifier.loggedIn ? CreatWidget() : ListWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? ListWidget() : Auth2Widget(),
+              appStateNotifier.loggedIn ? CreatWidget() : ListWidget(),
         ),
         FFRoute(
           name: 'Auth2',
@@ -95,6 +95,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'List',
           path: '/list',
           builder: (context, params) => ListWidget(),
+        ),
+        FFRoute(
+          name: 'creat',
+          path: '/creat',
+          builder: (context, params) => CreatWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -261,7 +266,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/auth2';
+            return '/list';
           }
           return null;
         },

@@ -584,7 +584,7 @@ class _Auth2WidgetState extends State<Auth2Widget>
                                                           }
 
                                                           context.goNamedAuth(
-                                                              'List',
+                                                              'creat',
                                                               context.mounted);
                                                         },
                                                         text: 'Get Started',
@@ -731,7 +731,7 @@ class _Auth2WidgetState extends State<Auth2Widget>
                                                                     }
 
                                                                     context.goNamedAuth(
-                                                                        'List',
+                                                                        'creat',
                                                                         context
                                                                             .mounted);
                                                                   },
@@ -815,7 +815,7 @@ class _Auth2WidgetState extends State<Auth2Widget>
                                                                           }
 
                                                                           context.goNamedAuth(
-                                                                              'List',
+                                                                              'creat',
                                                                               context.mounted);
                                                                         },
                                                                         text:
@@ -1236,7 +1236,7 @@ class _Auth2WidgetState extends State<Auth2Widget>
                                                           }
 
                                                           context.goNamedAuth(
-                                                              'List',
+                                                              'creat',
                                                               context.mounted);
                                                         },
                                                         text: 'Sign In',
@@ -1367,7 +1367,7 @@ class _Auth2WidgetState extends State<Auth2Widget>
                                                               }
 
                                                               context.goNamedAuth(
-                                                                  'List',
+                                                                  'creat',
                                                                   context
                                                                       .mounted);
                                                             },
@@ -1454,7 +1454,7 @@ class _Auth2WidgetState extends State<Auth2Widget>
                                                                     }
 
                                                                     context.goNamedAuth(
-                                                                        'List',
+                                                                        'creat',
                                                                         context
                                                                             .mounted);
                                                                   },
@@ -1544,7 +1544,7 @@ class _Auth2WidgetState extends State<Auth2Widget>
                                                           }
 
                                                           context.goNamedAuth(
-                                                              'List',
+                                                              'creat',
                                                               context.mounted);
                                                         },
                                                         text:
