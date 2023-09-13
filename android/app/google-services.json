@@ -12,7 +12,12 @@
           "package_name": "com.line.meet"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1076206231810-k90rttkv8url2su5me6nndo8s4g5chri.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBe8L4kURcwaOvk57FN4H8Add5EbN5XkU8"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1076206231810-k90rttkv8url2su5me6nndo8s4g5chri.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1076206231810-73ipt9jb95ptht3oce34h1qca4q61f8b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.line.meet"
+              }
+            }
+          ]
         }
       }
     }

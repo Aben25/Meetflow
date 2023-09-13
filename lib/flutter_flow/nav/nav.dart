@@ -78,33 +78,38 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? Tes2Widget() : Login3Widget(),
+          appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? Tes2Widget() : Login3Widget(),
+              appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
+        ),
+        FFRoute(
+          name: 'Login',
+          path: '/login',
+          builder: (context, params) => LoginWidget(),
         ),
         FFRoute(
           name: 'List',
           path: '/list',
-          builder: (context, params) => ListWidget(),
+          builder: (context, params) =>
+              params.isEmpty ? NavBarPage(initialPage: 'List') : ListWidget(),
         ),
         FFRoute(
-          name: 'tes2',
-          path: '/tes2',
-          builder: (context, params) => Tes2Widget(),
+          name: 'create',
+          path: '/create',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'create')
+              : CreateWidget(),
         ),
         FFRoute(
-          name: 'Auth1',
-          path: '/auth1',
-          builder: (context, params) => Auth1Widget(),
-        ),
-        FFRoute(
-          name: 'Login3',
-          path: '/login3',
-          builder: (context, params) => Login3Widget(),
+          name: 'profile',
+          path: '/profile',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'profile')
+              : ProfileWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -271,7 +276,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/login3';
+            return '/login';
           }
           return null;
         },

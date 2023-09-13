@@ -10,19 +10,19 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'login3_model.dart';
-export 'login3_model.dart';
+import 'login_model.dart';
+export 'login_model.dart';
 
-class Login3Widget extends StatefulWidget {
-  const Login3Widget({Key? key}) : super(key: key);
+class LoginWidget extends StatefulWidget {
+  const LoginWidget({Key? key}) : super(key: key);
 
   @override
-  _Login3WidgetState createState() => _Login3WidgetState();
+  _LoginWidgetState createState() => _LoginWidgetState();
 }
 
-class _Login3WidgetState extends State<Login3Widget>
+class _LoginWidgetState extends State<LoginWidget>
     with TickerProviderStateMixin {
-  late Login3Model _model;
+  late LoginModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -66,7 +66,7 @@ class _Login3WidgetState extends State<Login3Widget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Login3Model());
+    _model = createModel(context, () => LoginModel());
 
     _model.emailAddressController ??= TextEditingController();
     _model.passwordController ??= TextEditingController();
@@ -339,7 +339,7 @@ class _Login3WidgetState extends State<Login3Widget>
                                     return;
                                   }
 
-                                  context.goNamedAuth('tes2', context.mounted);
+                                  context.goNamedAuth('List', context.mounted);
                                 },
                                 text: 'Sign In',
                                 options: FFButtonOptions(
@@ -395,7 +395,7 @@ class _Login3WidgetState extends State<Login3Widget>
                                     return;
                                   }
 
-                                  context.goNamedAuth('tes2', context.mounted);
+                                  context.goNamedAuth('List', context.mounted);
                                 },
                                 text: 'Continue with Google',
                                 icon: FaIcon(
@@ -443,7 +443,7 @@ class _Login3WidgetState extends State<Login3Widget>
                                         }
 
                                         context.goNamedAuth(
-                                            'tes2', context.mounted);
+                                            'List', context.mounted);
                                       },
                                       text: 'Continue with Apple',
                                       icon: FaIcon(
