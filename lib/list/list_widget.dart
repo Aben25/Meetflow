@@ -246,7 +246,7 @@ class _ListWidgetState extends State<ListWidget> with TickerProviderStateMixin {
                                                         .spaceBetween,
                                                 children: [
                                                   Text(
-                                                    'Maidstone, San Antonio, Tx.',
+                                                    'Maidstone, San Antonio,',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyLarge
