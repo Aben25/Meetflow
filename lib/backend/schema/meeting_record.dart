@@ -36,11 +36,23 @@ class MeetingRecord extends FirestoreRecord {
   DateTime? get date => _date;
   bool hasDate() => _date != null;
 
+  // "description" field.
+  String? _description;
+  String get description => _description ?? '';
+  bool hasDescription() => _description != null;
+
+  // "raised" field.
+  List<DocumentReference>? _raised;
+  List<DocumentReference> get raised => _raised ?? const [];
+  bool hasRaised() => _raised != null;
+
   void _initializeFields() {
     _title = snapshotData['title'] as String?;
     _admin = snapshotData['admin'] as DocumentReference?;
     _joined = getDataList(snapshotData['Joined']);
     _date = snapshotData['date'] as DateTime?;
+    _description = snapshotData['description'] as String?;
+    _raised = getDataList(snapshotData['raised']);
   }
 
   static CollectionReference get collection =>
@@ -81,12 +93,14 @@ Map<String, dynamic> createMeetingRecordData({
   String? title,
   DocumentReference? admin,
   DateTime? date,
+  String? description,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'title': title,
       'admin': admin,
       'date': date,
+      'description': description,
     }.withoutNulls,
   );
 
@@ -102,12 +116,14 @@ class MeetingRecordDocumentEquality implements Equality<MeetingRecord> {
     return e1?.title == e2?.title &&
         e1?.admin == e2?.admin &&
         listEquality.equals(e1?.joined, e2?.joined) &&
-        e1?.date == e2?.date;
+        e1?.date == e2?.date &&
+        e1?.description == e2?.description &&
+        listEquality.equals(e1?.raised, e2?.raised);
   }
 
   @override
-  int hash(MeetingRecord? e) =>
-      const ListEquality().hash([e?.title, e?.admin, e?.joined, e?.date]);
+  int hash(MeetingRecord? e) => const ListEquality().hash(
+      [e?.title, e?.admin, e?.joined, e?.date, e?.description, e?.raised]);
 
   @override
   bool isValidKey(Object? o) => o is MeetingRecord;

@@ -30,6 +30,8 @@ class _CreateWidgetState extends State<CreateWidget> {
     _model = createModel(context, () => CreateModel());
 
     _model.titleController ??= TextEditingController();
+    _model.discriptionController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -96,6 +98,57 @@ class _CreateWidgetState extends State<CreateWidget> {
                         _model.titleControllerValidator.asValidator(context),
                   ),
                 ),
+                Align(
+                  alignment: AlignmentDirectional(0.00, 0.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 16.0, 10.0),
+                    child: TextFormField(
+                      controller: _model.discriptionController,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Description',
+                        hintText: 'Enter meeting description...',
+                        hintStyle: FlutterFlowTheme.of(context).bodyLarge,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primary,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        contentPadding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 30.0, 0.0, 0.0),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      maxLines: 40,
+                      minLines: 5,
+                      validator: _model.discriptionControllerValidator
+                          .asValidator(context),
+                    ),
+                  ),
+                ),
                 FlutterFlowCalendar(
                   color: FlutterFlowTheme.of(context).primary,
                   iconColor: FlutterFlowTheme.of(context).secondaryText,
@@ -121,7 +174,24 @@ class _CreateWidgetState extends State<CreateWidget> {
                           .set(createMeetingRecordData(
                             title: _model.titleController.text,
                             date: _model.calendarSelectedDay?.start,
+                            admin: currentUserReference,
+                            description: _model.discriptionController.text,
                           ));
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Success !',
+                            style: TextStyle(
+                              color: FlutterFlowTheme.of(context).secondary,
+                            ),
+                          ),
+                          duration: Duration(milliseconds: 4000),
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).secondary,
+                        ),
+                      );
+
+                      context.pushNamed('List');
                     },
                     text: 'Create Meeting',
                     options: FFButtonOptions(

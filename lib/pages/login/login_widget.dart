@@ -70,6 +70,8 @@ class _LoginWidgetState extends State<LoginWidget>
 
     _model.emailAddressController ??= TextEditingController();
     _model.passwordController ??= TextEditingController();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -90,7 +92,10 @@ class _LoginWidgetState extends State<LoginWidget>
           height: double.infinity,
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF4B39EF), Color(0xFFEE8B60)],
+              colors: [
+                Color(0xFF2B2195),
+                FlutterFlowTheme.of(context).secondaryText
+              ],
               stops: [0.0, 1.0],
               begin: AlignmentDirectional(0.87, -1.0),
               end: AlignmentDirectional(-0.87, 1.0),
@@ -103,22 +108,14 @@ class _LoginWidgetState extends State<LoginWidget>
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 32.0),
-                  child: Container(
-                    width: 200.0,
-                    height: 70.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                    alignment: AlignmentDirectional(0.00, 0.00),
-                    child: Text(
-                      'brand.ai',
-                      style: FlutterFlowTheme.of(context).displaySmall.override(
-                            fontFamily: 'Plus Jakarta Sans',
-                            color: Colors.white,
-                            fontSize: 36.0,
-                            fontWeight: FontWeight.w600,
-                          ),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/images/clr_v.png',
+                      width: MediaQuery.sizeOf(context).width * 0.56,
+                      height: MediaQuery.sizeOf(context).height * 0.15,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),

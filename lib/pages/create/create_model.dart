@@ -17,6 +17,9 @@ class CreateModel extends FlutterFlowModel {
   // State field(s) for title widget.
   TextEditingController? titleController;
   String? Function(BuildContext, String?)? titleControllerValidator;
+  // State field(s) for discription widget.
+  TextEditingController? discriptionController;
+  String? Function(BuildContext, String?)? discriptionControllerValidator;
   // State field(s) for Calendar widget.
   DateTimeRange? calendarSelectedDay;
 
@@ -32,6 +35,7 @@ class CreateModel extends FlutterFlowModel {
   void dispose() {
     unfocusNode.dispose();
     titleController?.dispose();
+    discriptionController?.dispose();
   }
 
   /// Action blocks are added here.

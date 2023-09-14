@@ -92,12 +92,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => LoginWidget(),
         ),
         FFRoute(
-          name: 'List',
-          path: '/list',
-          builder: (context, params) =>
-              params.isEmpty ? NavBarPage(initialPage: 'List') : ListWidget(),
-        ),
-        FFRoute(
           name: 'create',
           path: '/create',
           builder: (context, params) => params.isEmpty
@@ -105,11 +99,30 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : CreateWidget(),
         ),
         FFRoute(
+          name: 'List',
+          path: '/list',
+          builder: (context, params) =>
+              params.isEmpty ? NavBarPage(initialPage: 'List') : ListWidget(),
+        ),
+        FFRoute(
+          name: 'room',
+          path: '/room',
+          builder: (context, params) => RoomWidget(
+            meeting: params.getParam(
+                'meeting', ParamType.DocumentReference, false, ['Meeting']),
+          ),
+        ),
+        FFRoute(
           name: 'profile',
           path: '/profile',
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'profile')
               : ProfileWidget(),
+        ),
+        FFRoute(
+          name: 'profilEdit',
+          path: '/profilEdit',
+          builder: (context, params) => ProfilEditWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
